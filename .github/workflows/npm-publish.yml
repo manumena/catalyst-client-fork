@@ -12,6 +12,7 @@ name: Publish NPM package
 jobs:
 
   build:
+    runs-on: ubuntu-latest
     steps:
       - name: build and test
         uses: ./.github/workflows/build-and-test.yml
