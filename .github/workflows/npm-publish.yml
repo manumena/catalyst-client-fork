@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     needs: build
-    if: ${{ success() }}
+    if: ${{ failure() }}
     steps:
       - uses: decentraland/gh-action-release@0.3.2
         with:
