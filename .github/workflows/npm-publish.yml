@@ -15,10 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: build and test
-        uses: ./.github/workflows/build-and-test.yml
-      - name: release
-        uses: decentraland/gh-action-release@0.3.2
+      - uses: ./.github/workflows/build-and-test.yml
+      - uses: decentraland/gh-action-release@0.3.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: NPM Publish
