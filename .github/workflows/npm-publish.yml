@@ -14,6 +14,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@master
       - name: build and test
         uses: ./.github/workflows/build-and-test.yml
       - name: release
