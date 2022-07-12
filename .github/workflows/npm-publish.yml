@@ -12,23 +12,13 @@ name: Publish NPM package
 jobs:
 
   build:
-    uses: ./.github/workflows/build-and-test.yml
-
-  release:
-    runs-on: ubuntu-latest
-    permissions: write-all
-    needs: build
-    if: ${{ success() }}
     steps:
-      - uses: decentraland/gh-action-release@0.3.2
+      - name: build and test
+        uses: ./.github/workflows/build-and-test.yml
+      - name: release
+        uses: decentraland/gh-action-release@0.3.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-
-  publish:
-    runs-on: ubuntu-latest
-    needs: release
-    if: ${{ success() }}
-    steps:
       - name: NPM Publish
         uses: menduz/oddish-action@master
         with:
