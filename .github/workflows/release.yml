@@ -20,3 +20,4 @@ jobs:
 
           dry_run: ${{ github.event.inputs.dry_run }}
           repository: ${{ github.repository }}
+
